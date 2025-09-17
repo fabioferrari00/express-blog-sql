@@ -1,0 +1,24 @@
+{
+  "name": "express-blog-routing",
+  "version": "1.0.0",
+  "description": "express-blog-routing === ### Esercizio",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "watch": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioferrari00/express-blog-routing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabioferrari00/express-blog-routing/issues"
+  },
+  "homepage": "https://github.com/fabioferrari00/express-blog-routing#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
