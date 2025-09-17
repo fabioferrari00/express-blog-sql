@@ -1,8 +1,26 @@
-Express Blog - API CRUD (parte 2)
+ex-express-blog-sql
 ===
  ### Esercizio
  
-Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inserendo un middleware per la gestione delle rotte non registrate e uno per la gestione degli errori.
+Milestone 1
 
-Se viene chiamato un endpoint inesistente, un middleware dovrà rispondere un messaggio e uno status appropriato.
-Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.
+Importiamo il db in allegato su MySQL Workbench
+Installiamo il client mysql2 con npm i mysql2 nell’app Express
+Creiamo un file di configurazione per connettere il database
+Inseriamo un console.log nella logica di connessione e proviamo ad avviare l’applicazione per verificare che non ci siano errori.
+
+Milestone 2
+
+Facciamo sì che l’API di INDEX restituisca la lista di post recuperata dal database in formato JSON
+Verifichiamo su Postman che la risposta sia corretta
+
+Milestone 3 
+
+Facciamo sì che l’API di DESTROY permetta di eliminare un post dal database
+Verifichiamo su Postman che la chiamata non dia errore e risponda 204
+Verifichiamo su MySQL Workbench che il post venga effettivamente rimosso
+
+Milestone 4
+
+Facciamo sì che l’API di SHOW restituisca il post desiderato in formato JSON
+Verifichiamo su Postman che la risposta sia corretta
