@@ -1,4 +1,4 @@
-const posts = require('../data/posts.js');
+const posts = require('../data/db.js');
 
 const index = (req, res) => {
 
