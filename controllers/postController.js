@@ -17,15 +17,19 @@ const show = (req, res) => {
   //mi recupero l'id del post da mostrare
   const id = parseInt(req.params.id);
 
-  //recupero il post tramite l'id
-  const post = posts.find(item => item.id === id);
+  const sql = "SELECT * FROM posts WHERE id = ?";
+  connection.query(sql, [id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Errore nella query: " + err })
+    }
 
-  //controllo se il post esiste altrimenti restituisco un errore nel json
-  if (!post) {
-    return res.status(404).json({ error: '404 Not Found', message: 'Post non trovato' })
-  }
+    if (results.length === 0) {
+      return res.status(404).json({ error: "Post non trovato" })
+    }
 
-  res.json(post);
+    res.json(results)
+  })
+
 }
 
 const store = (req, res) => {
