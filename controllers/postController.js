@@ -1,17 +1,16 @@
-const posts = require('../data/db.js');
+const connection = require('../data/db.js');
 
 const index = (req, res) => {
 
-  const title = req.query.title;
+  const sql = "SELECT * FROM posts";
 
-  let filteredPost = posts
+  connection.query(sql, (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Errore nella query:" + err })
+    }
 
-  //controllo se il post esiste altrimenti restituisco un errore nel json
-  if (title) {
-    filteredPost = posts.filter(item => item.title.toLowerCase().includes(title.toLowerCase()));
-  }
-
-  res.send(filteredPost);
+    res.json(results)
+  })
 }
 
 const show = (req, res) => {
