@@ -83,17 +83,14 @@ const modify = (req, res) => {
 const destroy = (req, res) => {
   const id = parseInt(req.params.id);
 
-  //recupero il post tramite l'id
-  const post = posts.find(item => item.id === id);
+  const sql = "DELETE FROM posts WHERE id = ?";
 
-  //controllo se il post esiste altrimenti restituisco un errore nel json
-  if (!post) {
-    return res.status(404).json({ error: '404 Not Found', message: 'Post non trovato' })
-  }
-
-  posts.splice(posts.indexOf(post), 1);
-
-  res.sendStatus(204);
+  connection.query(sql, [id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Errore nella query: " + err })
+    }
+    res.sendStatus(204);
+  })
 
 
 }
